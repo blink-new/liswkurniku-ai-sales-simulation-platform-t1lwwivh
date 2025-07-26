@@ -85,7 +85,6 @@
 
 .salesplay-text-gradient {
   background: linear-gradient(135deg, #F44 0%, #FF6B35 50%, #FF8C42 100%);
-  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }

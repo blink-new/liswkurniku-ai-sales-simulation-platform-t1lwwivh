@@ -298,30 +298,39 @@ export const ScenarioBuilder: React.FC<ScenarioBuilderProps> = ({ onBack }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-salesplay-red to-salesplay-orange">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200 sticky top-0 z-10">
+      <div className="bg-white/10 backdrop-blur-sm border-b border-white/20 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-4">
-              <Button variant="ghost" size="sm" onClick={onBack}>
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                onClick={onBack}
+                className="text-white hover:bg-white/20"
+              >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back
               </Button>
               <div>
-                <h1 className="text-xl font-semibold text-gray-900">Scenario Builder</h1>
-                <p className="text-sm text-gray-600">Create a new sales simulation scenario</p>
+                <h1 className="text-xl font-serif font-bold text-white">Scenario Builder</h1>
+                <p className="text-sm text-white/80">Create a new sales simulation scenario</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <Button variant="outline" onClick={handleCancel}>
+              <Button 
+                variant="outline" 
+                onClick={handleCancel}
+                className="border-white/30 text-white hover:bg-white/20"
+              >
                 <X className="h-4 w-4 mr-2" />
                 Cancel
               </Button>
               <Button 
                 onClick={handleSave} 
                 disabled={isSubmitting}
-                className="bg-neon-gradient hover:opacity-90 text-white"
+                className="bg-white text-salesplay-red hover:bg-white/90 font-medium"
               >
                 <Save className="h-4 w-4 mr-2" />
                 {isSubmitting ? 'Saving...' : 'Save Scenario'}
@@ -337,11 +346,11 @@ export const ScenarioBuilder: React.FC<ScenarioBuilderProps> = ({ onBack }) => {
           {/* Form */}
           <div className="lg:col-span-2 space-y-6">
             {formSections.map((section, sectionIndex) => (
-              <Card key={sectionIndex} className="shadow-sm">
+              <Card key={sectionIndex} className="bg-white/95 backdrop-blur-sm shadow-lg border-0">
                 <CardHeader className="pb-4">
-                  <CardTitle className="text-lg font-semibold text-gray-900 flex items-center gap-3">
-                    <div className="p-2 bg-neon-gradient-subtle rounded-lg">
-                      <section.icon className="h-5 w-5 text-neon-gradient" />
+                  <CardTitle className="text-lg font-serif font-semibold text-gray-900 flex items-center gap-3">
+                    <div className="p-2 bg-gradient-to-r from-salesplay-red to-salesplay-orange rounded-lg">
+                      <section.icon className="h-5 w-5 text-white" />
                     </div>
                     {section.title}
                   </CardTitle>
