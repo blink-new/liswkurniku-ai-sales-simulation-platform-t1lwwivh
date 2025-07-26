@@ -137,7 +137,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-salesplay-gradient">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="space-y-8">
           {/* Welcome Header */}
@@ -164,7 +164,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
               {/* Scenario Library */}
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-xl font-semibold text-gray-900">
+                  <h2 className="text-2xl font-serif font-semibold text-white salesplay-title">
                     Training Scenarios
                   </h2>
                   <div className="flex items-center space-x-2">
@@ -172,6 +172,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
                       variant={viewMode === 'grid' ? 'default' : 'outline'}
                       size="sm"
                       onClick={() => setViewMode('grid')}
+                      className={`salesplay-button ${viewMode === 'grid' ? 'salesplay-button-primary' : ''}`}
                     >
                       <Grid className="w-4 h-4" />
                     </Button>
@@ -179,6 +180,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
                       variant={viewMode === 'list' ? 'default' : 'outline'}
                       size="sm"
                       onClick={() => setViewMode('list')}
+                      className={`salesplay-button ${viewMode === 'list' ? 'salesplay-button-primary' : ''}`}
                     >
                       <List className="w-4 h-4" />
                     </Button>

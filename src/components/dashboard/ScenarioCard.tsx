@@ -31,71 +31,74 @@ export const ScenarioCard: React.FC<ScenarioCardProps> = ({
 }) => {
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case 'Beginner': return 'bg-green-100 text-green-800';
-      case 'Intermediate': return 'bg-yellow-100 text-yellow-800';
-      case 'Advanced': return 'bg-red-100 text-red-800';
-      default: return 'bg-gray-100 text-gray-800';
+      case 'Beginner': return 'bg-green-500/20 text-green-700 border-green-500/30';
+      case 'Intermediate': return 'bg-yellow-500/20 text-yellow-700 border-yellow-500/30';
+      case 'Advanced': return 'bg-red-500/20 text-red-700 border-red-500/30';
+      default: return 'bg-gray-500/20 text-gray-700 border-gray-500/30';
     }
   };
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'completed': return 'bg-green-100 text-green-800';
-      case 'failed': return 'bg-red-100 text-red-800';
-      case 'in-progress': return 'bg-blue-100 text-blue-800';
-      default: return 'bg-gray-100 text-gray-800';
+      case 'completed': return 'bg-green-500/20 text-green-700 border-green-500/30';
+      case 'failed': return 'bg-red-500/20 text-red-700 border-red-500/30';
+      case 'in-progress': return 'bg-blue-500/20 text-blue-700 border-blue-500/30';
+      default: return 'bg-gray-500/20 text-gray-700 border-gray-500/30';
     }
   };
 
   return (
-    <Card className="hover:shadow-lg transition-shadow duration-200">
-      <CardHeader className="pb-3">
+    <div className="salesplay-card rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+      <div className="space-y-4">
         <div className="flex items-start justify-between">
-          <div className="flex items-center space-x-2">
-            <Building className="w-5 h-5 text-blue-500" />
-            <CardTitle className="text-lg">{scenario.name}</CardTitle>
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-salesplay-red/20 rounded-lg flex items-center justify-center">
+              <Building className="w-5 h-5 text-salesplay-red" />
+            </div>
+            <div>
+              <h3 className="text-xl font-serif font-semibold text-gray-800">{scenario.name}</h3>
+              <p className="text-sm text-gray-600 mt-1">{scenario.industry}</p>
+            </div>
           </div>
-          <Badge className={getDifficultyColor(scenario.difficulty)}>
+          <Badge className={`${getDifficultyColor(scenario.difficulty)} border font-medium`}>
             {scenario.difficulty}
           </Badge>
         </div>
-        <p className="text-sm text-gray-600">{scenario.industry}</p>
-      </CardHeader>
-      
-      <CardContent className="space-y-4">
-        <p className="text-sm text-gray-700">{scenario.description}</p>
         
-        <div className="flex items-center justify-between text-sm text-gray-500">
-          <div className="flex items-center space-x-1">
+        <p className="text-gray-700 leading-relaxed">{scenario.description}</p>
+        
+        <div className="flex items-center justify-between text-sm">
+          <div className="flex items-center space-x-2 text-gray-600">
             <Clock className="w-4 h-4" />
-            <span>{scenario.duration}</span>
+            <span className="font-medium">{scenario.duration}</span>
           </div>
           {scenario.lastAttempt && (
-            <div className="flex items-center space-x-2">
-              <Badge className={getStatusColor(scenario.lastAttempt.status)}>
+            <div className="flex items-center space-x-3">
+              <Badge className={`${getStatusColor(scenario.lastAttempt.status)} border font-medium`}>
                 {scenario.lastAttempt.status}
               </Badge>
               {scenario.lastAttempt.score && (
-                <div className="flex items-center space-x-1">
-                  <Star className="w-4 h-4 text-yellow-500" />
-                  <span>{scenario.lastAttempt.score}%</span>
+                <div className="flex items-center space-x-1 text-yellow-600">
+                  <Star className="w-4 h-4 fill-current" />
+                  <span className="font-semibold">{scenario.lastAttempt.score}%</span>
                 </div>
               )}
             </div>
           )}
         </div>
         
-        <div className="flex space-x-2">
+        <div className="flex space-x-3 pt-2">
           <Button 
             onClick={() => onStart(scenario.id)}
-            className="flex-1"
+            className="flex-1 bg-salesplay-red hover:bg-salesplay-coral text-white font-semibold py-2.5 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl"
             size="sm"
           >
             <Play className="w-4 h-4 mr-2" />
-            Start
+            Start Simulation
           </Button>
           <Button 
             onClick={() => onPreview(scenario.id)}
+            className="bg-gray-100 hover:bg-gray-200 text-gray-700 border-0 rounded-xl transition-all duration-200"
             variant="outline"
             size="sm"
           >
@@ -104,6 +107,7 @@ export const ScenarioCard: React.FC<ScenarioCardProps> = ({
           {scenario.lastAttempt && (
             <Button 
               onClick={() => onRetry(scenario.id)}
+              className="bg-gray-100 hover:bg-gray-200 text-gray-700 border-0 rounded-xl transition-all duration-200"
               variant="outline"
               size="sm"
             >
@@ -111,7 +115,7 @@ export const ScenarioCard: React.FC<ScenarioCardProps> = ({
             </Button>
           )}
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 };

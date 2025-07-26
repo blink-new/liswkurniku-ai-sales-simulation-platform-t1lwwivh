@@ -17,7 +17,7 @@ export const QuickStartCTA: React.FC<QuickStartCTAProps> = ({
         <Button
           onClick={onStartSimulation}
           size="lg"
-          className="rounded-full shadow-lg hover:shadow-xl transition-shadow duration-200 bg-blue-600 hover:bg-blue-700"
+          className="salesplay-button-primary rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 px-6 py-4"
         >
           <Play className="w-5 h-5 mr-2" />
           Start Simulation
@@ -27,22 +27,27 @@ export const QuickStartCTA: React.FC<QuickStartCTAProps> = ({
   }
 
   return (
-    <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-6 text-white">
-      <div className="flex items-center justify-between">
-        <div>
-          <h3 className="text-xl font-semibold mb-2">Ready to Practice?</h3>
-          <p className="text-blue-100">
+    <div className="salesplay-card rounded-2xl p-8 shadow-xl relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-salesplay-red/10 to-salesplay-orange/10 rounded-full -translate-y-16 translate-x-16" />
+      <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-salesplay-orange/10 to-salesplay-red/10 rounded-full translate-y-12 -translate-x-12" />
+      
+      <div className="relative flex items-center justify-between">
+        <div className="flex-1">
+          <h3 className="text-2xl font-serif font-semibold text-gray-800 mb-3">
+            Ready to Practice?
+          </h3>
+          <p className="text-gray-600 text-lg leading-relaxed">
             Start a new simulation and improve your sales skills with AI-powered training.
           </p>
         </div>
-        <div className="flex space-x-3">
+        <div className="ml-8">
           <Button
             onClick={onStartSimulation}
-            variant="secondary"
             size="lg"
-            className="bg-white text-blue-600 hover:bg-gray-100"
+            className="bg-salesplay-red hover:bg-salesplay-coral text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
           >
-            <Zap className="w-5 h-5 mr-2" />
+            <Zap className="w-5 h-5 mr-3" />
             Quick Start
           </Button>
         </div>

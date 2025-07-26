@@ -1,75 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 15 100% 60%;
-    --foreground: 222.2 84% 4.9%;
+    /* SalesPlay.ai inspired color palette */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 15 100% 60%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 98%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 98%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 98%;
-    --accent-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 14 100% 57%; /* Coral red */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 25 100% 60%; /* Warm orange */
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 15 100% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 14 100% 57%;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-    
-    /* Custom neon orange and magenta gradients */
-    --neon-orange: 15 100% 60%;
-    --neon-orange-light: 15 100% 70%;
-    --neon-magenta: 320 100% 50%;
-    --neon-magenta-light: 320 100% 60%;
-    --success: 142 76% 36%;
+    --radius: 0.75rem;
   }
 
   .dark {
-    --background: 15 100% 60%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 84% 4.9%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 14 100% 57%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 25 100% 60%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 14 100% 57%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    
-    /* Dark mode neon colors */
-    --neon-orange: 15 100% 60%;
-    --neon-orange-light: 15 100% 70%;
-    --neon-magenta: 320 100% 50%;
-    --neon-magenta-light: 320 100% 60%;
-    --success: 142 76% 36%;
   }
 }
 
@@ -77,42 +66,81 @@
   * {
     @apply border-border;
   }
-
+  
   body {
-    @apply text-foreground;
+    @apply bg-gradient-to-br from-red-500 via-orange-500 to-orange-400 text-foreground min-h-screen;
 
-    background: linear-gradient(135deg, #FF6B35 0%, #F72585 100%);
-    min-height: 100vh;
+    font-family: Inter, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
   }
 }
 
-/* Custom neon gradient utilities */
-.bg-neon-gradient {
-  background: linear-gradient(135deg, hsl(var(--neon-orange)) 0%, hsl(var(--neon-orange-light)) 25%, hsl(var(--neon-magenta)) 75%, hsl(var(--neon-magenta-light)) 100%);
+/* Custom gradient classes for SalesPlay.ai theme */
+.salesplay-gradient {
+  background: linear-gradient(135deg, #F44 0%, #FF6B35 50%, #FF8C42 100%);
 }
 
-.bg-neon-gradient-subtle {
-  background: linear-gradient(135deg, hsl(var(--neon-orange) / 10%) 0%, hsl(var(--neon-orange-light) / 5%) 25%, hsl(var(--neon-magenta) / 10%) 75%, hsl(var(--neon-magenta-light) / 5%) 100%);
-}
-
-.bg-neon-gradient-soft {
-  background: linear-gradient(135deg, #FFF4F0 0%, #FFE8E0 25%, #FDF2F8 75%, #FAE8FF 100%);
-}
-
-.text-neon-gradient {
-  background: linear-gradient(135deg, hsl(var(--neon-orange)) 0%, hsl(var(--neon-orange-light)) 25%, hsl(var(--neon-magenta)) 75%, hsl(var(--neon-magenta-light)) 100%);
+.salesplay-text-gradient {
+  background: linear-gradient(135deg, #F44 0%, #FF6B35 50%, #FF8C42 100%);
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.border-neon-gradient {
-  border-image: linear-gradient(135deg, hsl(var(--neon-orange)) 0%, hsl(var(--neon-magenta)) 100%) 1;
+.salesplay-card {
+  background: rgb(255 255 255 / 95%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgb(255 255 255 / 20%);
 }
 
-.shadow-neon {
-  box-shadow: 0 4px 20px hsl(var(--neon-orange) / 15%), 0 2px 10px hsl(var(--neon-magenta) / 10%);
+.salesplay-card-dark {
+  background: rgb(0 0 0 / 30%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgb(255 255 255 / 10%);
 }
 
-.shadow-neon-lg {
-  box-shadow: 0 10px 40px hsl(var(--neon-orange) / 20%), 0 4px 20px hsl(var(--neon-magenta) / 15%);
+/* Typography styles matching SalesPlay.ai */
+.salesplay-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+}
+
+.salesplay-subtitle {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  color: rgb(255 255 255 / 90%);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Button styles */
+.salesplay-button {
+  background: rgb(255 255 255 / 20%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgb(255 255 255 / 30%);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.salesplay-button:hover {
+  background: rgb(255 255 255 / 30%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgb(0 0 0 / 15%);
+}
+
+.salesplay-button-primary {
+  background: rgb(255 255 255 / 90%);
+  color: #F44;
+  font-weight: 600;
+}
+
+.salesplay-button-primary:hover {
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgb(0 0 0 / 20%);
 }

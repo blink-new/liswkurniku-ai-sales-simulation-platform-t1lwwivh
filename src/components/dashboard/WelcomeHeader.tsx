@@ -20,47 +20,65 @@ export const WelcomeHeader: React.FC<WelcomeHeaderProps> = ({
   language,
   onLanguageChange
 }) => {
+  const languages = [
+    { code: 'en', name: 'English', flag: '🇺🇸' },
+    { code: 'pl', name: 'Polski', flag: '🇵🇱' },
+    { code: 'de', name: 'Deutsch', flag: '🇩🇪' }
+  ];
+
+  const currentLanguage = languages.find(l => l.code === language) || languages[0];
+
   return (
-    <Card className="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-100">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center space-x-4">
-          <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
-            {user.avatar ? (
-              <img src={user.avatar} alt={user.name} className="w-12 h-12 rounded-full" />
-            ) : (
-              <User className="w-6 h-6 text-white" />
-            )}
-          </div>
-          <div>
-            <h1 className="text-2xl font-semibold text-gray-900">
-              Welcome back, {user.name}
-            </h1>
-            <div className="flex items-center space-x-2 mt-1">
-              <Award className="w-4 h-4 text-blue-500" />
-              <span className="text-gray-600">
-                Level {user.level} – {user.stage}
-              </span>
-              <Badge variant="secondary" className="ml-2">
-                Active
-              </Badge>
-            </div>
+    <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center space-x-6">
+        <div className="w-16 h-16 salesplay-card rounded-full flex items-center justify-center shadow-lg">
+          {user.avatar ? (
+            <img src={user.avatar} alt={user.name} className="w-16 h-16 rounded-full" />
+          ) : (
+            <span className="text-salesplay-red font-serif font-semibold text-xl">
+              {user.name.split(' ').map(n => n[0]).join('')}
+            </span>
+          )}
+        </div>
+        <div>
+          <h1 className="text-4xl font-serif font-semibold text-white salesplay-title mb-2">
+            Welcome back, {user.name.split(' ')[0]}
+          </h1>
+          <div className="flex items-center space-x-3">
+            <Award className="w-5 h-5 text-white/90" />
+            <span className="text-white/90 text-lg salesplay-subtitle">
+              Level {user.level} – {user.stage}
+            </span>
+            <Badge className="bg-white/20 text-white border-white/30 ml-3">
+              Active
+            </Badge>
           </div>
         </div>
-        
-        <div className="flex items-center space-x-2">
-          <Globe className="w-4 h-4 text-gray-500" />
+      </div>
+      
+      <div className="flex items-center space-x-3">
+        <Globe className="w-5 h-5 text-white/90" />
+        <div className="salesplay-button px-4 py-2 rounded-lg">
           <Select value={language} onValueChange={onLanguageChange}>
-            <SelectTrigger className="w-20">
-              <SelectValue />
+            <SelectTrigger className="w-24 bg-transparent border-none text-white">
+              <SelectValue>
+                <span className="flex items-center gap-2">
+                  {currentLanguage.flag} {currentLanguage.code.toUpperCase()}
+                </span>
+              </SelectValue>
             </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="en">EN</SelectItem>
-              <SelectItem value="pl">PL</SelectItem>
-              <SelectItem value="de">DE</SelectItem>
+            <SelectContent className="bg-white/95 backdrop-blur-lg border-white/20">
+              {languages.map((lang) => (
+                <SelectItem key={lang.code} value={lang.code} className="text-gray-800">
+                  <span className="flex items-center gap-2">
+                    {lang.flag} {lang.name}
+                  </span>
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </div>
       </div>
-    </Card>
+    </div>
   );
 };
