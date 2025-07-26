@@ -184,7 +184,7 @@ export const ConversationView: React.FC<ConversationViewProps> = ({
             {!isLocalConversationActive ? (
               <button
                 onClick={handleStartConversation}
-                className="px-6 py-2 bg-white text-salesplay-red rounded-lg hover:bg-white/90 transition-colors font-medium"
+                className="px-6 py-2 magenta-chromium-button rounded-lg"
               >
                 <Play className="w-4 h-4 inline mr-2" />
                 Start Conversation
@@ -192,7 +192,7 @@ export const ConversationView: React.FC<ConversationViewProps> = ({
             ) : (
               <button
                 onClick={handleEndConversation}
-                className="px-6 py-2 bg-white/20 backdrop-blur-sm text-white rounded-lg hover:bg-white/30 transition-colors font-medium"
+                className="px-6 py-2 magenta-chromium-button rounded-lg"
               >
                 <Square className="w-4 h-4 inline mr-2" />
                 End Simulation
@@ -216,7 +216,7 @@ export const ConversationView: React.FC<ConversationViewProps> = ({
               </p>
               <button
                 onClick={handleStartConversation}
-                className="px-8 py-3 bg-white text-salesplay-red rounded-lg hover:bg-white/90 transition-colors font-medium text-lg"
+                className="px-8 py-3 magenta-chromium-button rounded-lg text-lg"
               >
                 <Play className="w-5 h-5 inline mr-2" />
                 Start Conversation
@@ -280,7 +280,7 @@ export const ConversationView: React.FC<ConversationViewProps> = ({
             <button
               onClick={handleSendMessage}
               disabled={!inputMessage.trim()}
-              className="p-3 bg-white text-salesplay-red rounded-lg hover:bg-white/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="p-3 magenta-chromium-button rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Send className="w-5 h-5" />
             </button>

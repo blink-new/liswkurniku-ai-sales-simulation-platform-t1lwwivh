@@ -51,14 +51,14 @@ export const VoiceCalibration: React.FC<VoiceCalibrationProps> = ({
           <Button 
             onClick={onTest}
             variant="outline" 
-            className="border-orange-300 text-orange-700 hover:bg-orange-100 rounded-xl font-semibold"
+            className="magenta-chromium-button rounded-xl"
           >
             <Mic className="w-4 h-4 mr-2" />
             Test
           </Button>
           <Button 
             onClick={onCalibrate}
-            className="bg-orange-600 hover:bg-orange-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
+            className="magenta-chromium-button rounded-xl"
           >
             <Settings className="w-4 h-4 mr-2" />
             Calibrate

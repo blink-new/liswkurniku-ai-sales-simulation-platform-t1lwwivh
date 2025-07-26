@@ -100,7 +100,7 @@ export const FeedbackPreview: React.FC<FeedbackPreviewProps> = ({
 
         <Button 
           onClick={() => onViewFullReport(feedback.sessionId)}
-          className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 border-0 rounded-xl font-semibold py-3 transition-all duration-200"
+          className="w-full magenta-chromium-button rounded-xl py-3"
           variant="outline"
         >
           <Eye className="w-4 h-4 mr-2" />

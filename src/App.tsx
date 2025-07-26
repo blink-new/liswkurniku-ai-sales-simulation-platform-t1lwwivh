@@ -5,8 +5,9 @@ import { Toaster } from './components/ui/sonner'
 import { Dashboard } from './components/Dashboard'
 import { ScenarioBuilder } from './components/ScenarioBuilder'
 import { ConversationView } from './components/ConversationView'
+import { TopToolbar } from './components/TopToolbar'
 
-type Page = 'dashboard' | 'scenario-builder' | 'conversation'
+type Page = 'dashboard' | 'scenario-builder' | 'conversation' | 'team-performance' | 'feedback-review' | 'user-management' | 'settings'
 
 function AppContent() {
   const { user, isLoading } = useAuth()
@@ -64,25 +65,99 @@ function AppContent() {
   const renderPage = () => {
     switch (currentPage) {
       case 'dashboard':
-        return <Dashboard onNavigate={setCurrentPage} />
+        return (
+          <div className="min-h-screen">
+            <TopToolbar onNavigate={setCurrentPage} />
+            <Dashboard onNavigate={setCurrentPage} />
+          </div>
+        )
       case 'scenario-builder':
-        return <ScenarioBuilder onBack={() => setCurrentPage('dashboard')} />
+        return (
+          <div className="min-h-screen">
+            <TopToolbar onNavigate={setCurrentPage} />
+            <ScenarioBuilder onBack={() => setCurrentPage('dashboard')} />
+          </div>
+        )
       case 'conversation':
         return (
-          <ConversationView
-            scenario={{
-              title: "IT Director Meeting",
-              clientPersona: "IT Director – Regional Hospital, Poland"
-            }}
-            onStartConversation={() => console.log('Starting conversation...')}
-            onEndSimulation={() => setCurrentPage('dashboard')}
-            onSendMessage={(message) => console.log('Sending message:', message)}
-            onVoiceToggle={() => console.log('Voice toggle')}
-            onBack={() => setCurrentPage('dashboard')}
-          />
+          <div className="min-h-screen">
+            <TopToolbar onNavigate={setCurrentPage} />
+            <ConversationView
+              scenario={{
+                title: "IT Director Meeting",
+                clientPersona: "IT Director – Regional Hospital, Poland"
+              }}
+              onStartConversation={() => console.log('Starting conversation...')}
+              onEndSimulation={() => setCurrentPage('dashboard')}
+              onSendMessage={(message) => console.log('Sending message:', message)}
+              onVoiceToggle={() => console.log('Voice toggle')}
+              onBack={() => setCurrentPage('dashboard')}
+            />
+          </div>
+        )
+      case 'team-performance':
+        return (
+          <div className="min-h-screen">
+            <TopToolbar onNavigate={setCurrentPage} />
+            <div className="p-8">
+              <div className="max-w-4xl mx-auto">
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+                  <h1 className="text-3xl font-['Playfair_Display'] text-white mb-4">Team Performance</h1>
+                  <p className="text-white/80">Team performance analytics coming soon...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      case 'feedback-review':
+        return (
+          <div className="min-h-screen">
+            <TopToolbar onNavigate={setCurrentPage} />
+            <div className="p-8">
+              <div className="max-w-4xl mx-auto">
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+                  <h1 className="text-3xl font-['Playfair_Display'] text-white mb-4">Feedback Review</h1>
+                  <p className="text-white/80">Feedback review system coming soon...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      case 'user-management':
+        return (
+          <div className="min-h-screen">
+            <TopToolbar onNavigate={setCurrentPage} />
+            <div className="p-8">
+              <div className="max-w-4xl mx-auto">
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+                  <h1 className="text-3xl font-['Playfair_Display'] text-white mb-4">User Management</h1>
+                  <p className="text-white/80">User management system coming soon...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      case 'settings':
+        return (
+          <div className="min-h-screen">
+            <TopToolbar onNavigate={setCurrentPage} />
+            <div className="p-8">
+              <div className="max-w-4xl mx-auto">
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+                  <h1 className="text-3xl font-['Playfair_Display'] text-white mb-4">Settings</h1>
+                  <p className="text-white/80">Settings panel coming soon...</p>
+                </div>
+              </div>
+            </div>
+          </div>
         )
       default:
-        return <Dashboard onNavigate={setCurrentPage} />
+        return (
+          <div className="min-h-screen">
+            <TopToolbar onNavigate={setCurrentPage} />
+            <Dashboard onNavigate={setCurrentPage} />
+          </div>
+        )
     }
   }
 

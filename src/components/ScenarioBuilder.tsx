@@ -322,7 +322,7 @@ export const ScenarioBuilder: React.FC<ScenarioBuilderProps> = ({ onBack }) => {
               <Button 
                 variant="outline" 
                 onClick={handleCancel}
-                className="border-white/30 text-white hover:bg-white/20"
+                className="magenta-chromium-button"
               >
                 <X className="h-4 w-4 mr-2" />
                 Cancel
@@ -330,7 +330,7 @@ export const ScenarioBuilder: React.FC<ScenarioBuilderProps> = ({ onBack }) => {
               <Button 
                 onClick={handleSave} 
                 disabled={isSubmitting}
-                className="bg-white text-salesplay-red hover:bg-white/90 font-medium"
+                className="magenta-chromium-button disabled:opacity-50"
               >
                 <Save className="h-4 w-4 mr-2" />
                 {isSubmitting ? 'Saving...' : 'Save Scenario'}

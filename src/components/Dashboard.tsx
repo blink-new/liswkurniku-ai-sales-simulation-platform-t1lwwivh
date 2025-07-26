@@ -6,7 +6,7 @@ import { ScenarioCard } from './dashboard/ScenarioCard';
 import { ProgressSummary } from './dashboard/ProgressSummary';
 import { FeedbackPreview } from './dashboard/FeedbackPreview';
 import { VoiceCalibration } from './dashboard/VoiceCalibration';
-import { ManagerTools } from './dashboard/ManagerTools';
+
 import { QuickStartCTA } from './dashboard/QuickStartCTA';
 
 // Mock data
@@ -213,15 +213,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
                 onViewFullReport={handleViewFullReport}
               />
               
-              {/* Manager Tools */}
-              {mockUser.isManager && (
-                <ManagerTools
-                  onScenarioBuilder={() => onNavigate('scenario-builder')}
-                  onTeamPerformance={() => console.log('Team Performance')}
-                  onFeedbackReview={() => console.log('Feedback Review')}
-                  onUserManagement={() => console.log('User Management')}
-                />
-              )}
+
             </div>
           </div>
         </div>

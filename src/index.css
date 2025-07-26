@@ -143,3 +143,25 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgb(0 0 0 / 20%);
 }
+
+/* Magenta Chromium Button Styles */
+.magenta-chromium-button {
+  background: linear-gradient(135deg, #F72585 0%, #0EA5E9 100%);
+  color: white;
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgb(247 37 133 / 30%);
+}
+
+.magenta-chromium-button:hover {
+  background: linear-gradient(135deg, #E91E63 0%, #0284C7 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgb(247 37 133 / 40%);
+  color: white;
+}
+
+.magenta-chromium-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgb(247 37 133 / 30%);
+}

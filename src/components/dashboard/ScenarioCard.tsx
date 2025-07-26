@@ -90,7 +90,7 @@ export const ScenarioCard: React.FC<ScenarioCardProps> = ({
         <div className="flex space-x-3 pt-2">
           <Button 
             onClick={() => onStart(scenario.id)}
-            className="flex-1 bg-salesplay-red hover:bg-salesplay-coral text-white font-semibold py-2.5 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl"
+            className="flex-1 magenta-chromium-button py-2.5 rounded-xl"
             size="sm"
           >
             <Play className="w-4 h-4 mr-2" />
@@ -98,7 +98,7 @@ export const ScenarioCard: React.FC<ScenarioCardProps> = ({
           </Button>
           <Button 
             onClick={() => onPreview(scenario.id)}
-            className="bg-gray-100 hover:bg-gray-200 text-gray-700 border-0 rounded-xl transition-all duration-200"
+            className="magenta-chromium-button rounded-xl"
             variant="outline"
             size="sm"
           >
@@ -107,7 +107,7 @@ export const ScenarioCard: React.FC<ScenarioCardProps> = ({
           {scenario.lastAttempt && (
             <Button 
               onClick={() => onRetry(scenario.id)}
-              className="bg-gray-100 hover:bg-gray-200 text-gray-700 border-0 rounded-xl transition-all duration-200"
+              className="magenta-chromium-button rounded-xl"
               variant="outline"
               size="sm"
             >
